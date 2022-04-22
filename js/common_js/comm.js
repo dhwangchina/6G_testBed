@@ -234,6 +234,3 @@ function delRedundEle_f(vArr)
 
 
 
-
-
-

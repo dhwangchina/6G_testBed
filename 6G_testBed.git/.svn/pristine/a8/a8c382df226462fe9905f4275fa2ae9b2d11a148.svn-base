@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Login</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="box">
+	<div class="main">
+		<div class="nav">
+			<p class="title">登录 / 注册</p>
+			<ul class="item">
+				<li>>登录</li>
+				<li><a href="regist.html">注册</a></li>
+			</ul>
+		</div>
+		<div class="content">
+			<div class="inc_show">
+				<div class="logintop">用户登录</div>
+				<table border="0" class="logincon">
+					<form id="loginform" name="form1" method="get" action="index.html">
+					<tbody>
+						<tr>
+							<td class="tdl">账号</td>
+							<td class="tdr"><input name="username" type="text" id="username" size="30" class="inbox"></td>
+						</tr>
+						<tr>
+							<td class="tdl">密码</td>
+							<td class="tdr"><input name="password" type="password" id="password" size="30" class="inbox"></td>
+						</tr>
+						<tr>
+							<td class="tdl">验证码</td>
+							<td class="tdr vcode"><input type="text" name="vcode" size="6" class="inbox">
+									<img id="lykey" src="/vcode" height="23" onclick="reloadcode(this)" title="看不清楚,点击刷新"></td>
+						</tr>
+						<tr>
+							<td class="tdl">&nbsp;</td>
+							<td class="tdr"><input id="gobtn" type="submit" name="Submit" value="确认登录" class="submit"></td>
+						</tr>
+					</tbody>
+					</form>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+		<script>
+	function reloadcode(e){
+		e.src='/vcode?'+Math.random(111111,999999);
+	}
+	</script>
+</body>
+</html>

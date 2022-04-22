@@ -50,28 +50,31 @@
                     <li class="list04">
                         <a href="#" style="font-size:16px; margin-left: 20px; color: white;">Performance</a>
                         <li>
-                            <a href="javascript:void(0);" onmousedown="showContent('networkPerfParaStat.php')" style="font-size:16px; margin-left: 40px; color: white;">&raquo;&raquo;Network ParaStats</a>
+                            <a href="javascript:void(0);" onmousedown="showContent('networkPerfParaStat.php')" style="font-size:14px; margin-left: 40px; color: white;">&raquo;&raquo;Network ParaStats</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0);" onmousedown="showContent('radioPerfParaStat.php')" style="font-size:16px; margin-left: 40px; color: white;">&raquo;&raquo;Radio ParaStats</a>
+                            <a href="javascript:void(0);" onmousedown="showContent('radioPerfParaStat.php')" style="font-size:14px; margin-left: 40px; color: white;">&raquo;&raquo;Radio ParaStats</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0);" onmousedown="showContent('radioPerfChart.php')" style="font-size:16px; margin-left: 40px; color: white;">&raquo;&raquo;Chart</a>
+                            <a href="javascript:void(0);" onmousedown="showContent('radioPerfChart.php')" style="font-size:14px; margin-left: 40px; color: white;">&raquo;&raquo;Radio KPI Charts</a>
                         </li>
                     </li>                    
                     <li><a href="#" style="font-size:16px; margin-left: 20px; color: white;">Maintainance</a>
                         <li>
-                            <a href="javascript:void(0);" onmousedown="showContent('eventLog.php')" style="font-size:16px; margin-left: 40px; color: white;">&raquo;&raquo;Event</a>
+                            <a href="javascript:void(0);" onmousedown="showContent('eventLog.php')" style="font-size:14px; margin-left: 40px; color: white;">&raquo;&raquo;Event</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0);" onmousedown="showContent('alarmLog.php')" style="font-size:16px; margin-left: 40px; color: white;">&raquo;&raquo;Alarm</a>
+                            <a href="javascript:void(0);" onmousedown="showContent('alarmLog.php')" style="font-size:14px; margin-left: 40px; color: white;">&raquo;&raquo;Alarm</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0);" onmousedown="showContent('logLog.php')" style="font-size:16px; margin-left: 40px; color: white;">&raquo;&raquo;Log</a>
+                            <a href="javascript:void(0);" onmousedown="showContent('logLog.php')" style="font-size:14px; margin-left: 40px; color: white;">&raquo;&raquo;Log</a>
                         </li>
                     </li>
                     <li class="list06">
-                        <a href="javascript:void(0);" onmousedown="showContent('usrsConf.php')" style="font-size:16px; margin-left: 20px; color: white;">Users</a>
+                        <a href="#" style="font-size:16px; margin-left: 20px; color: white;">Users Management</a>
+                        <li>
+                            <a href="javascript:void(0);" onmousedown="showContent('usrsConf.php')" style="font-size:14px; margin-left: 40px; color: white;">&raquo;&raquo;User List</a>
+                        </li>
                     </li>
                     <li class="list08">
                         <a href="javascript:void(0);" onmousedown="showContent('about.php')" style="font-size:16px; margin-left: 20px; color: white;">About</a>
@@ -87,7 +90,7 @@
 
         <!----footBox------>
         <div class="footBox">
-            <footer id="footer" style="color: white;"><h4>All Rights Reserved &copy;2021</h4></footer>
+            <footer id="footer" style="color: white;"><h4>All Rights Reserved &copy;2021-2022</h4></footer>
         </div>
     </body>
 </html>

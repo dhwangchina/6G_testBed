@@ -12,7 +12,7 @@
 # 3. git config --global user.email "dhwangchina@gmail.com"
 # 4. git add .
 # 5. git commit -m "some commits"
-# 6. git push origin master
+# 6. git push origin main
 
 
 

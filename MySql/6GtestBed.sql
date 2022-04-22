@@ -97,6 +97,44 @@ insert into devNetworkTbl values(104,5,9,1,'DD:EE:FF:AA:BB:CC','192.168.0.4',100
 insert into devNetworkTbl values(105,5,9,1,'EE:FF:AA:BB:CC:DD','192.168.0.5',1005,0,now());
 insert into devNetworkTbl values(106,5,9,1,'FF:AA:BB:CC:DD:EE','192.168.0.6',1006,0,now());
 
+DROP TABLE IF EXISTS `devRadioParaTbl`;
+
+CREATE TABLE `devRadioParaTbl`
+(
+    `devID`        bigint(20)   NOT NULL,
+    `radioID`      tinyint(2)   NOT NULL,
+    `cellType`     tinyint(2)   NOT NULL,
+    `eNBName`      varchar(64)  NOT NULL,
+    `frameType`    tinyint(2)   NOT NULL,/*0->TDD,1->FDD*/
+    `tddConfig`    tinyint(2)   NOT NULL,
+    `prefixType`   tinyint(2)   NOT NULL,
+    `eutraBand`    bigint(20)   NOT NULL,
+    `TxFreq`       bigint(20)   NOT NULL,
+    `RxFreq`       bigint(20)   NOT NULL,
+    `TxPwr`        bigint(20)   NOT NULL,
+    `RxFreqOffset` bigint(20)   NOT NULL,
+    `CellID`       tinyint(4)   NOT NULL,
+    `NumRbDl`      tinyint(4)   NOT NULL,
+    `MbsfnCellID`  tinyint(4)   NOT NULL,
+    `AntePorts`    tinyint(4)   NOT NULL,
+    `AnteTx`       tinyint(4)   NOT NULL,
+    `AnteRx`       tinyint(4)   NOT NULL,
+    `TxGain`       tinyint(4)   NOT NULL,
+    `RxGain`       tinyint(4)   NOT NULL,
+    `timestamp`    datetime     DEFAULT NULL COMMENT 'CreateTime',
+    UNIQUE KEY     `radioID`(`devID`,`radioID`)
+)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO devRadioParaTbl VALUES(1,0,0,'eNB-Eurecom-LTEBox',0,3,0,7,12000000,12500000000,30,1000000,24,16,43,20,10,10,30,20,now());
+INSERT INTO devRadioParaTbl VALUES(1,1,1,'eNB-Eurecom-LTEBox',0,3,0,7,12000000,12500000000,30,1000000,24,16,43,20,10,10,30,20,now());
+INSERT INTO devRadioParaTbl VALUES(2,0,0,'eNB-Eurecom-LTEBox',0,3,0,7,12000000,12500000000,30,1000000,24,16,43,20,10,10,30,20,now());
+INSERT INTO devRadioParaTbl VALUES(2,1,1,'eNB-Eurecom-LTEBox',0,3,0,7,12000000,12500000000,30,1000000,24,16,43,20,10,10,30,20,now());
+INSERT INTO devRadioParaTbl VALUES(2,2,0,'eNB-Eurecom-LTEBox',0,3,0,7,12000000,12500000000,30,1000000,24,16,43,20,10,10,30,20,now());
+INSERT INTO devRadioParaTbl VALUES(3,0,1,'eNB-Eurecom-LTEBox',0,3,0,7,12000000,12500000000,30,1000000,24,16,43,20,10,10,30,20,now());
+INSERT INTO devRadioParaTbl VALUES(5,0,1,'eNB-Eurecom-LTEBox',0,3,0,7,12000000,12500000000,30,1000000,24,16,43,20,10,10,30,20,now());
+
+
+
 /*Device Event Information table*/
 DROP TABLE IF EXISTS `devEventTbl`;
 
@@ -111,6 +149,7 @@ CREATE TABLE `devEventTbl`
 )ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 insert into devEventTbl values(1,1,2,"Hello world, I'm event info.",now());
+
 /*Device Alarm Infoomation table*/
 DROP TABLE IF EXISTS `devAlarmTbl`;
 
@@ -227,6 +266,8 @@ INSERT INTO nodeNetWorkPerfParaTbl VALUES(1,0,1500,1000,1000,900,10,32,90,1000,1
 INSERT INTO nodeNetWorkPerfParaTbl VALUES(1,1,1500,1000,1000,900,10,32,90,1000,1000,10,10,10,200,200,10,now());
 INSERT INTO nodeNetWorkPerfParaTbl VALUES(2,0,1500,1000,1000,900,10,32,90,1000,1000,10,10,10,200,200,10,now());
 INSERT INTO nodeNetWorkPerfParaTbl VALUES(2,1,1500,1000,1000,900,10,32,90,1000,1000,10,10,10,200,200,10,now());
+INSERT INTO nodeNetWorkPerfParaTbl VALUES(2,2,1500,1000,1000,900,10,32,90,1000,1000,10,10,10,200,200,10,now());
+INSERT INTO nodeNetWorkPerfParaTbl VALUES(3,0,1500,1000,1000,900,10,32,90,1000,1000,10,10,10,200,200,10,now());
 
 /*Node Radio Performance Parameters table*/
 DROP TABLE IF EXISTS `radioKPITbl`;
@@ -251,3 +292,4 @@ INSERT INTO radioKPITbl VALUES(1,2,10,2000,30,50,4,67,now());
 INSERT INTO radioKPITbl VALUES(2,0,10,2000,30,50,4,67,now());
 INSERT INTO radioKPITbl VALUES(2,1,10,2000,30,50,4,67,now());
 INSERT INTO radioKPITbl VALUES(2,2,10,2000,30,50,4,67,now());
+INSERT INTO radioKPITbl VALUES(3,2,30,3000,30,50,4,67,now());

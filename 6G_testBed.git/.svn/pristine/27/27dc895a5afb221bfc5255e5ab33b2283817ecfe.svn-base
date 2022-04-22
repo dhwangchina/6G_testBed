@@ -1,0 +1,242 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.mmenu-opened,.mmenu-opened body
+{
+    height:100%;
+    width:100%; 
+    background-color:#1e242a;
+}
+
+.mmenu-opened body
+{
+    position:relative; 
+    background-color:#1e242a; 
+    z-index:100;
+}
+
+.mmenu
+{
+    display:none;
+    width:100%;
+    height:100%;
+    background-color:#333;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:100;
+    overflow:auto;
+    overflow-x:hidden;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+.mmenu,.mmenu *
+{
+    -webkit-text-size-adjust:none;
+    font-family:微软雅黑;
+    font-size:16px; 
+    font-weight: normal !important;
+}
+
+.mmenu ul,.mmenu li
+{
+    list-style:none;
+}
+
+.mmenu li
+{
+    position:relative; 
+    border:none !important;
+}
+
+.mmenu ul,.mmenu li,.mmenu li > a,.mmenu li > span
+{
+    display:block;
+    padding:0;
+    margin:0;
+}
+
+.mmenu > ul
+{ 
+    height:100%;
+    background-color:#1e242a;
+    padding:10px 0 40px 0;
+}
+
+.mmenu-opened .mmenu.mmenu-opened
+{
+    display:block; 
+    height:100%; 
+    background-color:#1e242a;
+}
+
+.mmenu-opened .mmenu-page
+{
+    box-shadow:0 0 20px rgba( 0, 0, 0, 0.8 );
+    background-color:#1e242a;
+    min-height:100%;
+    position:absolute;
+    z-index:100;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+    
+#mmenu-blocker
+{
+    display:none;
+}
+
+.mmenu-opened #mmenu-blocker,.mmenu-blocking #mmenu-blocker
+{
+    background:#fff;
+    opacity:0;
+    display:block;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    z-index:100;
+}
+
+.mmenu-opened .mmenu-page,.mmenu-opened #mmenu-blocker
+{
+    -webkit-transition:left 0.5s ease, right 0.5s ease, margin 0.5s ease;
+    -moz-transition:left 0.5s ease, right 0.5s ease, margin 0.5s ease;
+    transition: left 0.5s ease, right 0.5s ease, margin 0.5s ease;
+}
+
+.mmenu-accelerated .mmenu-page,html.mmenu-accelerated #mmenu-blocker
+{
+    -webkit-transform:translate3d(0,0,0);-
+    moz-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+}	
+
+.mmenu-left.mmenu-opened .mmenu-page,html.mmenu-left.mmenu-opened #mmenu-blocker
+{
+    margin-left:0px;
+    left:0%;
+}
+
+.mmenu-left.mmenu-opening .mmenu-page,.mmenu-left.mmenu-opening #mmenu-blocker
+{
+    margin-left:-65px;
+    left:100%;
+}
+
+.mmenu-right.mmenu-opened .mmenu-page,.mmenu-right.mmenu-opened #mmenu-blocker
+{
+    margin-right:0px;
+    right:0%;
+}
+
+.mmenu-right.mmenu-opening .mmenu-page,.mmenu-right.mmenu-opening #mmenu-blocker
+{
+    margin-right:-65px;
+    right:100%;
+}
+
+.mmenu
+{ 
+    height:100%;
+    background:#1e242a;
+}
+    
+.mmenu *
+{
+    text-shadow: none !important;
+}
+
+.mmenu li
+{
+    border:none !important;
+}
+
+.mmenu li:first-child
+{
+    border: none !important;
+}
+    
+.mmenu li > a,.mmenu li > span
+{
+    text-indent:20px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    line-height:40px;
+    overflow:hidden;
+    padding-right:5px; 
+    padding-left: 30px;
+}
+    
+.mmenu li > a,.mmenu li > span,.mmenu li > a:hover
+{
+    color: #FFF;
+    text-decoration:none;
+}
+
+/*
+.mmenu li.mmenu-selected > a,.mmenu li.mmenu-selected > span
+{
+    background:#222;
+}
+*/
+.mmenu li.mmenu-selected > a.mmenu-subopen
+{
+    background:transparent;
+}
+
+.mmenu.mmenu-horizontal
+{
+    width:1000%; 
+    height:100%;
+}
+    
+.mmenu.mmenu-horizontal ul
+{
+    width:10%;
+    margin-left:0%;
+    float:left;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    -webkit-transition:margin-left 0.5s ease;
+    -moz-transition:margin-left 0.5s ease;
+    transition:margin-left 0.5s ease;
+}
+
+.mmenu-accelerated .mmenu.mmenu-horizontal ul
+{
+    -webkit-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+}
+
+.mmenu.mmenu-horizontal ul.mmenu-submenu
+{
+    display:none;
+}
+
+.mmenu.mmenu-horizontal ul.mmenu-submenu.mmenu-opened
+{
+    display:block;
+}
+
+.mmenu.mmenu-horizontal ul.mmenu-subopened
+{
+    margin-left:-10%;
+    height:100%;
+    overflow:hidden;
+}
+
+@media all and (min-width: 500px) 
+{
+    .mmenu.mmenu-horizontal{width:5000px;}
+    .mmenu-right .mmenu.mmenu-horizontal{left:auto;right:-4500px;}
+    .mmenu-left.mmenu-opening .mmenu-page,.mmenu-left.mmenu-opening #mmenu-blocker{left:500px;}
+}

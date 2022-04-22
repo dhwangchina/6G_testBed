@@ -48,7 +48,7 @@
                     </table>
                </form>
             </div>
-            <div id="devNetParaList" style="margin-top: 1px;"></div>
+            <div id="devNetParaList" style="margin-top: 2px;"></div>
             <div class="linkBtn">
                 <!--a href="./devNetParaAdd.php" class="linkbutton" style="right: 45px; margin-right: 20px;">Add</a-->
                 <a href="./devNetParaAdd.php"><input type="button" class="linkLeftBtn" name="linkBtn" id="linkBtn" value="Add"/></a>

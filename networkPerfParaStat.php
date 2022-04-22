@@ -17,38 +17,6 @@
     $jsonNodeList = json_encode($NodeRowList);
     mysql_free_result($NodeSqlResult);
 
-    //portList
-    $NodeID = $_POST['SelNodeID'];
-    $NodeID = 1;
-    $PrtSql       = "SELECT * FROM nodeNetWorkPerfParaTbl WHERE nodeID = $NodeID";
-    $PrtSqlResult = mysql_query($PrtSql);
-    $PrtRowList   = array();
-    $PrtRowCnt    = 0;
-    while($PrtRow = mysql_fetch_array($PrtSqlResult))
-    {
-        $PrtRowList[] = $PrtRow;
-        $PrtRowCnt++;
-    }
-
-    $jsonPrtList = json_encode($PrtRowList);
-    mysql_free_result($PrtSqlResult);
-    
-    //Network Parameters
-    $PortID = $_POST['SelPortID'];
-    $PortID = 0;
-    $paraSql       = "SELECT * FROM nodeNetWorkPerfParaTbl WHERE nodeID = $NodeID AND portID = $PortID";
-    $paraSqlResult = mysql_query($paraSql);
-    $paraRowList   = array();
-    $paraRowCnt    = 0;
-    while($paraRow = mysql_fetch_array($paraSqlResult))
-    {
-        $paraRowList[] = $paraRow;
-        $paraRowCnt++;
-    }
-
-    $jsonParaList = json_encode($paraRowList);
-    mysql_free_result($paraSqlResult);
-   //
     mysql_close($connect);
 ?>
 
@@ -71,134 +39,138 @@
                 <form name="nodeNet" id="nodeNet" method="post" action="">
                     <table>
                         <tr>
-                            <td style="width: 205px; height: 30px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center; background-color:blue; border-color: grey;">NodeID:<?PHP echo("$NodeID");?></td>
+                            <td style="width: 205px; height: 30px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center; background-color:blue; border-color: grey;">NodeID:
+                                <output style="color: white;" name="selectedNodeID" id="selectedNodeID"></output>
+                            </td>
                             <td style="width: 180px; height: 30px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center; background-color:blue; border-color: grey;">
-                                <select name="SelNodeID" id="SelNodeID" style="width: 180px;">
+                                <select style="width: 180px;" name="SelNodeID" id="SelNodeID" onchange="selNodeID(this.options[this.selectedIndex].text)">
                                 </select>
                             </td>
-                            <td style="width: 150px; height: 30px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center; background-color:blue; border-color: grey;">PortID:<?PHP echo("$PortID");?></td>
+                            <td style="width: 150px; height: 30px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center; background-color:blue; border-color: grey;">PortID:
+                                <output style="color: white;" name="selectedPortID" id="selectedPortID"></output>
+                            </td>
                             <td style="width: 180px; height: 30px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center; background-color:blue; border-color: grey;">
-                                <select name="SelPortID" id="SelPortID" style="width: 180px;">
+                                <select  style="width: 180px;" name="SelPortID" id="SelPortID" onchange="selPortID(this.options[this.selectedIndex].text)">
                                 </select>
                             </td>
                             <td style="width: 120px; height: 30px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center; background-color:blue; border-color: grey;">Status</td>
-                            <td style="width: 147px; height: 30px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center; background-color:blue; border-color: grey;">
+                            <td style="width: 152px; height: 30px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center; background-color:blue; border-color: grey;">
                                 <output></output>
                             </td>
                         </tr>
                     </table>
-                </form>
-                <form name="Network" id="Network" method="GET" action="<?php echo $_SERVER['$PHP_SELF']; ?>" style="margin-top: 1px;">
-                    <table>
+                <!--/form>
+                <form name="Network" id="Network" method="GET" action="<?php echo $_SERVER['$PHP_SELF']; ?>" style="margin-top: 1px;"-->
+                    <table style="margin-top: 2px;">
                         <tr>
                             <td style="width: 200px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center;">Name</td>
                             <td style="width: 180px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center;">Value</td>
                             <td style="width: 600px; font-family: fantasy;font-size: 14px; font-weight: bold; color: white; text-align: center;">comments</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">MTU</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">MTU</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="mtu" id="mtu" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">MTU:Maxmum Transmission Unit</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">MTU:Maxmum Transmission Unit</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">Rate</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">Rate</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="rate" id="rate" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">Rate,bits number per second</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">Rate,bits number per second</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">BandWidth</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">BandWidth</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="BandWidth" id="BandWidth" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">BandWidth, maximum transmission rate</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">BandWidth, maximum transmission rate</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">Throughput</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">Throughput</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="throughput" id="throughput" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">The amount of material or items passing through a system or process.</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">The amount of material or items passing through a system or process.</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">Delay</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">Delay</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="delay" id="delay" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;"></td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;"></td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">RTT</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">RTT</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="rtt" id="rtt" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">Rapid Transformational Therapy</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">Rapid Transformational Therapy</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">Ratio</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">Ratio</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="ratio" id="ratio" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;"></td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;"></td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">TxPktNo</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">TxPktNo</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="TxPktNo" id="TxPktNo" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">The number of Tx packets</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">The number of Tx packets</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">TxByteNo</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">TxByteNo</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="TxByteNo" id="TxByteNo" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">The number of Tx bytes</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">The number of Tx bytes</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">TxPktErrNo</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">TxPktErrNo</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="TxPktErrNo" id="TxPktErrNo" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">The number of Tx error packets</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">The number of Tx error packets</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">TxByteErrNo</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">TxByteErrNo</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="TxByteErrNo" id="TxByteErrNo" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">The number of Tx error bytes</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">The number of Tx error bytes</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">RxPktNo</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">RxPktNo</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="RxPktNo" id="RxPktNo" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">he number of Rx packets</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">he number of Rx packets</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">RxByteNo</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">RxByteNo</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="RxByteNo" id="RxByteNo" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">The number of Rx bytes</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">The number of Rx bytes</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">RxPktErrNo</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">RxPktErrNo</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="RxPktErrNo" id="RxPktErrNo" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">The number of Rx error Packets</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">The number of Rx error Packets</td>
                         </tr>
                         <tr>
-                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">RxByteErrNo</td>
-                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: center;">
+                            <td style="width: 200px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: right; padding-right: 5px;">RxByteErrNo</td>
+                            <td style="width: 100px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">
                                 <output name="RxByteErrNo" id="RxByteErrNo" style="color: white;"></output>
                             </td>
-                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left;">The number of Rx error bytes</td>
+                            <td style="width: 600px; font-family: fantasy;font-size: 12px; font-weight: normal; color: white; text-align: left; padding-left: 5px;">The number of Rx error bytes</td>
                         </tr>
                     </table>
                 </form>
@@ -210,18 +182,11 @@
 
 <script type="text/javascript">
 var nodeList = eval(<?PHP echo("$jsonNodeList");?>);
-var portList = eval(<?PHP echo("$jsonPrtList"); ?>);
-var ParaList = eval(<?PHP echo("$jsonParaList");?>);
+var gNodeID  = 0;
 
 $(document).ready(function(){
     var ret = false;
     ret = genNodeList();
-    
-    if(true == ret)
-    {
-        genPortIDList();
-        showNetworkPortPara();
-    }
 });
 
 
@@ -229,18 +194,18 @@ function genNodeList()
 {
     var nodeID = 0;
     var Loopi  = 0;
-    
+    var index  = 0;
     var arrNodeID = new Array();
     var arrNum    = 0;
     var arrTmp    = [];
 
-    $("#SelNodeID").append("<option value=''>Select NodeID</option>");
+    $("#SelNodeID").append("<option value='0'>Select NodeID</option>");
     
     if(nodeList.length == 0)
     {
         return false;
     }
-    //
+
     for(Loopi = 0; Loopi < nodeList.length; Loopi++)
     {
         arrNodeID.push(nodeList[Loopi].nodeID);
@@ -250,70 +215,93 @@ function genNodeList()
     for(Loopi = 0; Loopi < arrTmp.length; Loopi++)
     {
         nodeID = arrTmp[Loopi];
-        $("#SelNodeID").append("<option value='"+Loopi+"'>"+nodeID+"</option>");
+        index = Loopi + 1;
+        $("#SelNodeID").append("<option value='" + index + "'>" + nodeID + "</option>");
     }
 
     return true;
 }
 
-function postNodeID()
+function selNodeID(vNodeID)
 {
-    var selObj  = document.getElementById("SelNodeID");
-    
-    var index  = selObj.selectedIndex;
-    var nodeID = selObj.options[index].value;
-    //alert(nodeID);
-//    var nodeID = document.getElementById("SelNodeID").value;
-
-    window.location.href = "perf_networkParaStat.php.php?nodeID="+nodeID;
+    document.getElementById('selectedNodeID').value = vNodeID;
+    gNodeID = vNodeID;
+    genPortIDList(vNodeID);
 }
 
-function genPortIDList()
+function genPortIDList(vNodeID)
 {
     var portID = 0;
-    var ulLoop  = 0;
+    var Loopi  = 0;
+    var index  = 0;
 
-    $("#SelPortID").append("<option value='255'>Select PortID</option>");
-    if(0 == portList.length)
-    {
-        return false;
-    }
+    $("#SelPortID").empty();
+    $("#SelPortID").append("<option value='0'>Select PortID</option>");
 
-    for(ulLoop = 0; ulLoop < portList.length; ulLoop++)
+    for(Loopi = 0; Loopi < nodeList.length; Loopi++)
     {
-        portID = portList[ulLoop].portID;
-        $("#SelPortID").append("<option value='"+ulLoop+"'>"+portID+"</option>");
+        if(nodeList[Loopi].nodeID != vNodeID)
+        {
+            continue;
+        }
+        else
+        {
+            portID = nodeList[Loopi].portID;
+            index = Loopi + 1;
+            $("#SelPortID").append("<option value='" + index + "'>" + portID + "</option>");
+        }
     }
 
     return true;
 }
 
-function showNetworkPortPara()
+function selPortID(vPortID)
 {
-    if(1 != ParaList.length)
-    {
-        return false;
-    }
-    else
-    {
-        document.getElementById("mtu").value          = ParaList[0].mtu;
-        document.getElementById("rate").value         = ParaList[0].rate;
-        document.getElementById("BandWidth").value    = ParaList[0].BandWidth;
-        document.getElementById("throughput").value   = ParaList[0].throughput;
-        document.getElementById("delay").value        = ParaList[0].delay;
-        document.getElementById("rtt").value          = ParaList[0].rtt;
-        document.getElementById("ratio").value        = ParaList[0].ratio;
-        document.getElementById("TxPktNo").value      = ParaList[0].TxPktNo;
-        document.getElementById("TxByteNo").value     = ParaList[0].TxByteNo;
-        document.getElementById("TxPktErrNo").value   = ParaList[0].TxPktErrNo;
-        document.getElementById("TxByteErrNo").value  = ParaList[0].TxByteErrNo;
-        document.getElementById("RxPktNo").value      = ParaList[0].RxPktNo;
-        document.getElementById("RxByteNo").value     = ParaList[0].RxByteNo;
-        document.getElementById("RxPktErrNo").value   = ParaList[0].RxPktErrNo;
-        document.getElementById("RxByteErrNo").value  = ParaList[0].RxByteErrNo;
-    }
+    document.getElementById('selectedPortID').value = vPortID;
+    showNetworkPortPara(gNodeID,vPortID);
+}
 
-    return true;
+function showNetworkPortPara(vNodeID,vPortID)
+{
+    var iLoop = 0;
+    
+    document.getElementById("mtu").value          = "Undefined";
+    document.getElementById("rate").value         = "Undefined";
+    document.getElementById("BandWidth").value    = "Undefined";
+    document.getElementById("throughput").value   = "Undefined";
+    document.getElementById("delay").value        = "Undefined";
+    document.getElementById("rtt").value          = "Undefined";
+    document.getElementById("ratio").value        = "Undefined";
+    document.getElementById("TxPktNo").value      = "Undefined";
+    document.getElementById("TxByteNo").value     = "Undefined";
+    document.getElementById("TxPktErrNo").value   = "Undefined";
+    document.getElementById("TxByteErrNo").value  = "Undefined";
+    document.getElementById("RxPktNo").value      = "Undefined";
+    document.getElementById("RxByteNo").value     = "Undefined";
+    document.getElementById("RxPktErrNo").value   = "Undefined";
+    document.getElementById("RxByteErrNo").value  = "Undefined";
+    
+    for(iLoop = 0; iLoop < nodeList.length; iLoop++)
+    {
+        if(nodeList[iLoop].nodeID == vNodeID && nodeList[iLoop].portID == vPortID)
+        {
+            document.getElementById("mtu").value          = nodeList[iLoop].mtu;
+            document.getElementById("rate").value         = nodeList[iLoop].rate;
+            document.getElementById("BandWidth").value    = nodeList[iLoop].BandWidth;
+            document.getElementById("throughput").value   = nodeList[iLoop].throughput;
+            document.getElementById("delay").value        = nodeList[iLoop].delay;
+            document.getElementById("rtt").value          = nodeList[iLoop].rtt;
+            document.getElementById("ratio").value        = nodeList[iLoop].ratio;
+            document.getElementById("TxPktNo").value      = nodeList[iLoop].TxPktNo;
+            document.getElementById("TxByteNo").value     = nodeList[iLoop].TxByteNo;
+            document.getElementById("TxPktErrNo").value   = nodeList[iLoop].TxPktErrNo;
+            document.getElementById("TxByteErrNo").value  = nodeList[iLoop].TxByteErrNo;
+            document.getElementById("RxPktNo").value      = nodeList[iLoop].RxPktNo;
+            document.getElementById("RxByteNo").value     = nodeList[iLoop].RxByteNo;
+            document.getElementById("RxPktErrNo").value   = nodeList[iLoop].RxPktErrNo;
+            document.getElementById("RxByteErrNo").value  = nodeList[iLoop].RxByteErrNo;
+        }
+    }
 }
 
 </script>
