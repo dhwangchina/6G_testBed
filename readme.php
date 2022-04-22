@@ -14,6 +14,13 @@
 # 5. git commit -m "some commits"
 # 6. git push origin main
 
+#git add *
+#git commit -m "2022-04-22 update"
+
+#git pull
+#git push origin main
+
+
 
 
 
