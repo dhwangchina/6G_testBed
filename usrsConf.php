@@ -1,12 +1,14 @@
-<!doctype HTML>
-
 <?PHP
-/*
-* File  : usrsConf.php
-* Author: Duohua(Edward) Wang
-* Email : dhwangchina@gmail.com
-* Time  : 12/10/2021
-*/
+/*********************************************
+ * FileName---: usrsConf.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 12/10/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
 
     include_once("include/dbLink.php");
     //
@@ -29,6 +31,7 @@
 ?>
 
 
+<!doctype HTML>
 <html>
     <head>
         <meta charset="utf-8"/>

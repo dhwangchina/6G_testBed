@@ -1,10 +1,15 @@
 <?PHP
-/*
-* File  : global.php
-* Author: Duohua(Edward) Wang
-* Email : dhwangchina@gmail.com
-* Time  : 1/11/2021
-*/
+/*********************************************
+ * FileName---: global.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 1/11/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
+ 
 define("MAX_USR_NUM"     , 65535);
 define("C_UDP_RX_BUF_LEN",  8196);
 define("C_MAC_LEN",            6);

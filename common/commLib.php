@@ -1,10 +1,23 @@
 <?PHP
-/*
-* File  : commLib.php
-* Author: Duohua(Edward) Wang
-* Email : dhwangchina@gmail.com
-* Time  : 18/11/2021
-*/
+/*********************************************
+ * FileName---: commLib.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 18/11/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
+function checkLogin()
+{
+    if (!isset($_SESSION['valid_user']))
+    {
+    	echo "<script language=javascript>alert ('You should log in first, Please');</script>";
+    	//$_SESSION['userurl'] = $_SERVER['REQUEST_URI'];
+    	echo '<script language=javascript>window.location.href="index.php"</script>';
+    }
+}
 
 function showBuf($buf,$bufLen)
 {

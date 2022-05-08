@@ -1,10 +1,14 @@
 <?PHP
-/*
-* File  : UdpRxMsg.php
-* Author: Duohua(Edward) Wang
-* Email : dhwangchina@gmail.com
-* Time  : 18/11/2021
-*/
+/*********************************************
+ * FileName---: UdpRxMsg.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 18/11/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
 
 include_once("../common/global.php");
 include_once("../common/commLib.php");

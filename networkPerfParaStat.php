@@ -1,6 +1,14 @@
-<!doctype HTML>
-
 <?PHP
+/*********************************************
+ * FileName---: networkPerfParaStat.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 20/11/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
     include_once("include/dbLink.php");
     
     //Get Node List
@@ -20,7 +28,7 @@
     mysql_close($connect);
 ?>
 
-
+<!doctype HTML>
 <html>
     <head>
         <meta charset="utf-8"/>

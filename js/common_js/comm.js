@@ -1,3 +1,14 @@
+/*********************************************
+ * FileName---: common.js
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 20/10/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+*/
+
 'use strict';
 //Fresh Current page periodically
 function freshPage(timSecVal)

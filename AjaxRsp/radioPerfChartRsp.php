@@ -1,7 +1,15 @@
 <?PHP
-/*
-* Get Node Radio Parameters of KPI from database
-*/
+/*********************************************
+ * FileName---: radioPerfChartRsp.php
+ * Function---: Get Node Radio Parameters of KPI from database
+ * Version----: V 0.0.1
+ * Time-------: 20/11/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
+
     include_once("../include/dbLink.php");
     
     $NodeID  = $_GET["NodeID"];

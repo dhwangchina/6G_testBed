@@ -17,8 +17,8 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-/*
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`testWEB` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;*/
+/*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+
 /*
 CREATE TABLE `users` 
 (
@@ -36,7 +36,7 @@ CREATE TABLE `users`
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 */
 
-CREATE DATABASE  `6GtestBed` ;
+CREATE DATABASE IF NOT EXISTS `6GtestBed` ;
 
 USE `6GtestBed`;
 
@@ -59,7 +59,6 @@ DROP TABLE IF EXISTS `usersInfoTbl`;
 CREATE TABLE `usersInfoTbl` 
 (
     `usrid`        bigint(20)   NOT NULL AUTO_INCREMENT COMMENT              'Key ID',
-/*    `usrid`        bigint(20)   NOT NULL                             COMMENT 'Key ID',*/
     `name`         varchar(15)  COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'name',
     `passwd`       varchar( 50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'password',
     `umail`        varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'userMail',

@@ -1,12 +1,14 @@
-<!doctype HTML>
-
 <?PHP
-/*
-* File  : devStatus.php
-* Author: Duohua(Edward) Wang
-* Email : dhwangchina@gmail.com
-* Time  : 18/10/2021
-*/
+/*********************************************
+ * FileName---: devStatus.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 18/10/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
     include_once("include/dbLink.php");
     
     $sql     = "SELECT * FROM devNetworkTbl WHERE status=1";
@@ -24,6 +26,7 @@
     mysql_close($connect);
 ?>
 
+<!doctype HTML>
 <html>
     <head>
         <meta charset="utf-8"/>

@@ -1,10 +1,14 @@
 <?PHP
-/*
-* File  : readme.php
-* Author: Duohua(Edward) Wang
-* Email : dhwangchina@gmail.com
-* Time  : 23/10/2021
-*/
+/*********************************************
+ * FileName---: readme.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 23/10/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
 
 # Git Step
 # 1. git init
@@ -13,13 +17,6 @@
 # 4. git add .
 # 5. git commit -m "some commits"
 # 6. git push origin main
-
-#git add *
-#git commit -m "2022-04-22 update"
-
-#git pull
-#git push origin main
-
 
 
 

@@ -1,10 +1,15 @@
 <?PHP
-/*
-* File  : timeoutCheck.php
-* Author: Duohua(Edward) Wang
-* Email : dhwangchina@gmail.com
-* Time  : 20/11/2021
-*/
+/*********************************************
+ * FileName---: timeoutCheck.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 20/11/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
+ 
 //ini_set('date.timezone','Asia/Shanghai');
 //date_default_timezone_set("Etc/GMT-9");
 //echo date('Y-m-d H:i',0);

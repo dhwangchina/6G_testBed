@@ -1,6 +1,14 @@
-<!DOCTYPE html>
-
 <?PHP
+/*********************************************
+ * FileName---: usrsAdd.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 20/11/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
     include_once("common/global.php");
     include_once("include/dbLink.php");
     //Get Usr Info
@@ -49,6 +57,7 @@
     mysql_close($connect);
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8"/>

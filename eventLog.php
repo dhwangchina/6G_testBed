@@ -1,12 +1,14 @@
-<!doctype HTML>
-
 <?PHP
-/*
-* File  : eventLog.php
-* Author: Duohua(Edward) Wang
-* Email : dhwangchina@gmail.com
-* Time  : 16/10/2021
-*/
+/*********************************************
+ * FileName---: eventLog.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 16/10/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
     include_once("include/dbLink.php");
     //Get Nide Event Info
     $logSql       = "SELECT * FROM devEventTbl ORDER BY indx";
@@ -26,7 +28,7 @@
     //
 ?>
 
-
+<!doctype HTML>
 <html>
     <head>
         <meta charset="utf-8"/>

@@ -1,12 +1,14 @@
-<!doctype HTML>
-
 <?PHP
-/*
-* File  : logLog.php
-* Author: Duohua(Edward) Wang
-* Email : dhwangchina@gmail.com
-* Time  : 18/10/2021
-*/
+/*********************************************
+ * FileName---: logLog.php
+ * Function---: 
+ * Version----: V 0.0.1
+ * Time-------: 18/10/2021
+ * Author-----: Duohua(Edward) Wang
+ * Email------: dhwangchina@gmail.com
+ * Copyright--: All rights reserverd By Duohua(Edward) Wang
+ **********************************************
+ */
 
     include_once("include/dbLink.php");
     //Get Nide Event Info
@@ -27,7 +29,7 @@
     //
 ?>
 
-
+<!doctype HTML>
 <html>
     <head>
         <meta charset="utf-8"/>
