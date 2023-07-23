@@ -31,6 +31,22 @@
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>6G testBed</title>
         <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <style>
+        .indexFootBox{
+            width: 100%;
+            height: 70px;
+            color: white;
+            background-color: #FFFC90;
+            background-image: url(images/home-bg.png);
+            background-repeat: repeat;
+        
+            text-align: center;
+            padding: 0px;
+            border: 1px solid #D9D9D9;
+            border-left: 1px solid #D9D9D9;
+            border-right: 1px solid #D9D9D9;
+        }
+        </style>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="js/common_js/comm.js"></script>
     </head>
@@ -75,5 +91,10 @@
             }
         ?>
         </div>
+        <!----footBox------>
+        <div class="indexFootBox">
+            <footer><h4>All Rights Reserved &copy;2021-2022</h4></footer>
+        </div>
+        
     </body>
 </html>
