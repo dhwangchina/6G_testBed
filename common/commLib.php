@@ -9,6 +9,20 @@
  * Copyright--: All rights reserverd By Duohua(Edward) Wang
  **********************************************
  */
+
+function valid_email($address)
+{
+    //if(preg_match('/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.a-zA-Z0-9\-\.]+$/',$address))
+    if(ereg('^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$',$address))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 function checkLogin()
 {
     if (!isset($_SESSION['valid_user']))
