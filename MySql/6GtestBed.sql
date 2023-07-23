@@ -33,7 +33,7 @@ CREATE TABLE `users`
   `modifyDate`   datetime   DEFAULT NULL COMMENT '修改时间',
   `userId`       bigint(20) DEFAULT NULL COMMENT '用户ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 */
 
 CREATE DATABASE IF NOT EXISTS `6GtestBed` ;
@@ -50,7 +50,7 @@ CREATE TABLE `XXXXXXTbl`
     `timestamp`  datetime     DEFAULT NULL COMMENT 'CreateTime',
     PRIMARY KEY  (`macAddr`),
     UNIQUE KEY  `devID`(`devID`,`macAddr`)
-)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 */
 
 /*Table structure for table `usersInfoTbl` BGN*/
@@ -65,7 +65,7 @@ CREATE TABLE `usersInfoTbl`
     `timestamp`    datetime    DEFAULT NULL COMMENT 'created time',
     `logTmStamp`   datetime    DEFAULT NULL COMMENT 'last login time',
     PRIMARY KEY (`usrid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO usersInfoTbl(`usrid`,`name`,`passwd`,`umail`, `timestamp`,`logTmStamp`) values(1,'dhwang','123456','dhwangchina@gmail.com',now(),now());
 INSERT INTO usersInfoTbl(`usrid`,`name`,`passwd`,`umail`, `timestamp`,`logTmStamp`) values(2,'admin','admin','dhwangchina@gmail.com',now(),now());
@@ -87,7 +87,7 @@ CREATE TABLE `devNetworkTbl`
     `timestamp`  datetime     DEFAULT NULL COMMENT 'CreateTime',
     PRIMARY KEY  (`macAddr`),
     UNIQUE KEY  `devID`(`devID`,`macAddr`)
-)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 insert into devNetworkTbl values(  1,5,8,1,'AA:BB:CC:DD:EE:FF','192.168.0.1',1001,1,now());
 insert into devNetworkTbl values(102,5,9,1,'BB:CC:DD:EE:FF:AA','192.168.0.2',1002,1,now());
@@ -122,7 +122,7 @@ CREATE TABLE `devRadioParaTbl`
     `RxGain`       tinyint(4)   NOT NULL,
     `timestamp`    datetime     DEFAULT NULL COMMENT 'CreateTime',
     UNIQUE KEY     `radioID`(`devID`,`radioID`)
-)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO devRadioParaTbl VALUES(1,0,0,'eNB-Eurecom-LTEBox',0,3,0,7,12000000,12500000000,30,1000000,24,16,43,20,10,10,30,20,now());
 INSERT INTO devRadioParaTbl VALUES(1,1,1,'eNB-Eurecom-LTEBox',0,3,0,7,12000000,12500000000,30,1000000,24,16,43,20,10,10,30,20,now());
@@ -145,7 +145,7 @@ CREATE TABLE `devEventTbl`
     `eventInfo`  varchar(256) NOT NULL,
     `timestamp`  datetime     DEFAULT NULL COMMENT 'CreateTime',
     PRIMARY KEY  (`indx`)
-)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 insert into devEventTbl values(1,1,2,"Hello world, I'm event info.",now());
 
@@ -160,7 +160,7 @@ CREATE TABLE `devAlarmTbl`
     `alarmInfo`  varchar(256) NOT NULL,
     `timestamp`  datetime     DEFAULT NULL COMMENT 'CreateTime',
     PRIMARY KEY  (`indx`)
-)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 insert into devAlarmTbl values(1,1,2,"Hello world, I'm alarm info.",now());
 insert into devAlarmTbl values(2,1,2,"Hello world, I'm alarm info.",now());
@@ -184,7 +184,7 @@ CREATE TABLE `devLogTbl`
     `logInfo`    varchar(256) NOT NULL,
     `timestamp`  datetime     DEFAULT NULL COMMENT 'CreateTime',
     PRIMARY KEY  (`indx`)
-)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 insert into devLogTbl values(1,1,2,"Hello world, I'm OptLog info.",now());
 insert into devLogTbl values(2,1,2,"Hello world, I'm OptLog info.",now());
@@ -223,7 +223,7 @@ CREATE TABLE `nodeRadioPerfParaTbl`
     `RxSensiv`   bigint(20)   NOT NULL,
     `timestamp`  datetime     DEFAULT NULL COMMENT 'CreateTime',
     UNIQUE KEY   `radioID`(`radioID`,`nodeID`)
-)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*
 PRIMARY KEY  (`nodeID`),
 ALTER TABLE nodeRadioPerfParaTbl ADD UNIQUE KEY(`nodeID`,`radioID`);
@@ -259,7 +259,7 @@ CREATE TABLE `nodeNetWorkPerfParaTbl`
     `RxByteErrNo` bigint(20)   NOT NULL,
     `timestamp`  datetime     DEFAULT NULL COMMENT 'CreateTime',
     UNIQUE KEY   `portID`(`portID`,`nodeID`)
-)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO nodeNetWorkPerfParaTbl VALUES(1,0,1500,1000,1000,900,10,32,90,1000,1000,10,10,10,200,200,10,now());
 INSERT INTO nodeNetWorkPerfParaTbl VALUES(1,1,1500,1000,1000,900,10,32,90,1000,1000,10,10,10,200,200,10,now());
@@ -283,7 +283,7 @@ CREATE TABLE `radioKPITbl`
     `rxPwr`       bigint(20)   NOT NULL,
     `timestamp`  datetime     DEFAULT NULL COMMENT 'CreateTime',
     UNIQUE KEY   `radioID`(`radioID`,`nodeID`)
-)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO radioKPITbl VALUES(1,0,10,2000,30,50,4,67,now());
 INSERT INTO radioKPITbl VALUES(1,1,10,2000,30,50,4,67,now());
